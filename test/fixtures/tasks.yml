@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  address: MyString
+  door_number: 1
+  postal_code: MyString
+  start_hour: 2018-12-13 22:45:01
+  end_hour: 2018-12-13 22:45:01
+  status: 1
+  deadline: 2018-12-13 22:45:01
+
+two:
+  title: MyString
+  description: MyText
+  address: MyString
+  door_number: 1
+  postal_code: MyString
+  start_hour: 2018-12-13 22:45:01
+  end_hour: 2018-12-13 22:45:01
+  status: 1
+  deadline: 2018-12-13 22:45:01

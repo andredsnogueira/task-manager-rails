@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @task.address %>
+</p>
+
+<p>
+  <strong>Door number:</strong>
+  <%= @task.door_number %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @task.postal_code %>
+</p>
+
+<p>
+  <strong>Start hour:</strong>
+  <%= @task.start_hour %>
+</p>
+
+<p>
+  <strong>End hour:</strong>
+  <%= @task.end_hour %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @task.deadline %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
