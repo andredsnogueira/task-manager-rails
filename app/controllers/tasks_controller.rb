@@ -60,6 +60,34 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  # FIXME: FORMAT.json() options nao estao direitas
+  def changestate
+    @task = Task.find(params[:id])
+    @task.status =params[:status]
+    if @task.save
+      format.json { render :show, status: :created, location: @task }
+    else
+      format.json { render json: @task.errors, status: :unprocessable_entity }
+       
+  end
+
+  def start
+    @task = Task.find(params[:id])
+    @task.start_hour =Time.now
+    if @task.save
+      format.json { render :show, status: :created, location: @task }
+    else
+      format.json { render json: @task.errors, status: :unprocessable_entity }
+  end
+
+  def end
+    @task = Task.find(params[:id])
+    @task.end_hour =Time.now
+    if @task.save
+      format.json { render :show, status: :created, location: @task }
+    else
+      format.json { render json: @task.errors, status: :unprocessable_entity }
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
