@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :administrators
   devise_for :employees
   
-  namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/' do
-    # list of resources
+  namespace :api,  defaults: { format: :json } do
+    resources :tasks
   end
 end

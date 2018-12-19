@@ -25,9 +25,10 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
+    @employee = Employee.find(1)
     respond_to do |format|
       if @task.save
+        @employee.tasks << @task
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render :show, status: :created, location: @task }
       else
@@ -69,6 +70,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :address, :door_number, :postal_code, :start_hour, :end_hour, :status, :deadline)
+      params.require(:task).permit(:title, :description, :address, :door_number, :postal_code, :status, :deadline, :employee_id)
     end
 end

@@ -37,23 +37,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :start_hour %>
-    <%= form.datetime_select :start_hour %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_hour %>
-    <%= form.datetime_select :end_hour %>
-  </div>
-
-  <div class="field">
     <%= form.label :status %>
-    <%= form.number_field :status %>
+    <%= form.text_field :status %>
   </div>
 
   <div class="field">
     <%= form.label :deadline %>
     <%= form.datetime_select :deadline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :employee_id %>
+    <%= form.number_field :employee_id %>
   </div>
 
   <div class="actions">
