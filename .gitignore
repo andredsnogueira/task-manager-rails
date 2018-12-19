@@ -27,3 +27,9 @@
 /config/master.key
 
 /.idea
+
+# ENV Files
+
+.env.development
+.env.test
+.env.production

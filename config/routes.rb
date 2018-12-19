@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :administrators
   devise_for :employees
   
-  namespace :api,  defaults: { format: :json } do
-    resources :tasks
+  namespace :api do
+    post 'auth' => 'authentication#authenticate_employee'
+    get 'home' => 'tasks#index'
   end
 end
