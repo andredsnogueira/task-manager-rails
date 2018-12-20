@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-    @employee = Employee.find(params[:employee_id])
+    @employee = Employee.find(task_params[:employee_id])
     respond_to do |format|
       if @task.save
         @employee.tasks << @task
