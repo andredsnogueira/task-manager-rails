@@ -15,8 +15,7 @@ class Api::AuthenticationController < Api::ApplicationController
     def payload(employee)
       return nil unless employee and employee.id
       {
-        auth_token: JsonWebToken.encode({employee_id: employee.id}),
-        employee: {id: employee.id, email: employee.email}
+        auth_token: JsonWebToken.encode({employee_id: employee.id})
       }
     end
   end
