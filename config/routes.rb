@@ -7,10 +7,6 @@ Rails.application.routes.draw do
   namespace :api do
     scope 'v1' do
       post 'login' => 'authentication#authenticate_employee'
-      # scope 'tasks' do
-      #   get '' => 'tasks#index'
-      #   get ':id' => 'tasks#show'
-      # end
       scope 'employees' do
         scope 'tasks' do
           get '' => 'tasks#employees'

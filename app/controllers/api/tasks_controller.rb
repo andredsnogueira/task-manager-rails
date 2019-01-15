@@ -1,17 +1,9 @@
 class Api::TasksController < Api::ApplicationController
     before_action :authenticate_request!
 
-    # def index
-    #   render json: Task.all
-    # end
-
-    # def show
-    #   render json: Task.find(params[:id])
-    # end 
-
     def employees
       employee = Employee.find(employee_id_in_token?)
-      render json: employee.tasks
+      render json: employee.tasks, status: :ok
     end
 
     def update
@@ -19,11 +11,27 @@ class Api::TasksController < Api::ApplicationController
       case params[:field]
       when 'start_hour'
         task.update(start_hour: Time.now)
-        render json: task
+        render json: nil, status: :no_content
       when 'end_hour'
         task.update(end_hour: Time.now)
-        render json: task
+        render json: nil, status: :no_content
+      when 'completed'
+        task.update(status: :completed)
+        render json: nil, status: :no_content
+      when 'doing'
+        task.update(status: :doing)
+        render json: nil, status: :no_content
+      when 'not_started'
+        task.update(status: :not_started)
+        render json: nil, status: :no_content
+      when 'partial_complete'
+        task.update(status: :partial_complete)
+        render json: nil, status: :no_content
+      else
+        render json: {
+          'status': 'Bad Request'
+        }, status: :bad_request
       end
     end
-end
+  end
   
