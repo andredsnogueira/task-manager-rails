@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand mx-auto" href="#">
+        Task Manager
+      </a>
+    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/administrators/sign_in">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tasks">Tasks</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

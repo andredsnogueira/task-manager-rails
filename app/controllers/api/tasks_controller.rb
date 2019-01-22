@@ -33,5 +33,12 @@ class Api::TasksController < Api::ApplicationController
         }, status: :bad_request
       end
     end
+
+    def today
+      beginning_of_day = Date.today.beginning_of_day
+      end_of_day = beginning_of_day.end_of_day
+      tasks = Task.where(deadline: beginning_of_day..end_of_day)
+      render json: tasks
+    end
   end
   
