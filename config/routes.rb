@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
   resources :companies
   resources :tasks
   devise_for :administrators
   devise_for :employees
+
   
   namespace :api do
     scope 'v1' do
+      get '' => 'welcome#index'
       post 'login' => 'authentication#authenticate_employee'
       scope 'employees' do
         post 'location' => 'locations#location'

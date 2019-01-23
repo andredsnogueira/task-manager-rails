@@ -3,7 +3,7 @@ class Api::TasksController < Api::ApplicationController
 
     def employees
       employee = Employee.find(employee_id_in_token?)
-      render json: employee.tasks, status: :ok
+      render json: employee.tasks.where.not(status: 0), status: :ok
     end
 
     def update
@@ -37,7 +37,8 @@ class Api::TasksController < Api::ApplicationController
     def today
       beginning_of_day = Date.today.beginning_of_day
       end_of_day = beginning_of_day.end_of_day
-      tasks = Task.where(deadline: beginning_of_day..end_of_day)
+      employee = Employee.find(employee_id_in_token?)
+      tasks = employee.tasks.where(deadline: beginning_of_day..end_of_day).where.not(status: 0)
       render json: tasks
     end
   end
